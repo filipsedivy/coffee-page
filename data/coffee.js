@@ -10,6 +10,10 @@ export const coffee = [
         slug: 'ristretto'
     },
     {
+        name: 'Black Eye',
+        slug: 'black-eye'
+    },
+    {
         name: 'Lungo',
         slug: 'lungo'
     },
@@ -30,6 +34,10 @@ export const coffee = [
         slug: 'caffe-latte'
     },
     {
+        name: 'Latte Macchiato',
+        slug: 'latte-macchiato'
+    },
+    {
         name: 'Cappuccino',
         slug: 'cappuccino'
     },
@@ -40,5 +48,33 @@ export const coffee = [
     {
         name: 'Mocha',
         slug: 'mocha'
+    },
+    {
+        name: 'Affogato',
+        slug: 'affogato'
+    },
+    {
+        name: 'Irish',
+        slug: 'irish'
+    },
+    {
+        name: 'Frappe',
+        slug: 'frappe'
+    },
+    {
+        name: 'Raf',
+        slug: 'raf'
+    },
+    {
+        name: 'Garajillo',
+        slug: 'garajillo'
+    },
+    {
+        name: 'Romano',
+        slug: 'romano'
+    },
+    {
+        name: 'Freddo',
+        slug: 'freddo'
     }
 ];
