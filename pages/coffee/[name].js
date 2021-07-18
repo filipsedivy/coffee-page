@@ -4,6 +4,8 @@ import {coffee} from "../../data/coffee";
 import {config} from "../../data/config";
 import {Alert, Col, Dropdown, DropdownButton, Image, Row} from "react-bootstrap";
 import Head from "next/head";
+import Link from "next/link";
+import * as Ionicons4 from "react-icons/io";
 import {CoffeeProperties} from "../../components/CoffeeProperties";
 
 const POST_PATH = join(process.cwd(), '_articles', 'coffee');
@@ -20,7 +22,7 @@ const Coffee = ({page, content, properties}) => {
             <header>
                 <Row>
                     <Col>
-                        <h1>{page.name}</h1>
+                        <h1><Link href="/"><a><Ionicons4.IoIosArrowBack/></a></Link> {page.name}</h1>
                     </Col>
                     <Col>
                         <DropdownButton title="Upravit" size="sm" className="float-end">
