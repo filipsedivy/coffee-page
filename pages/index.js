@@ -21,6 +21,12 @@ export default function Home({coffeeList}) {
             </Head>
 
             <main>
+                <Card className="mb-3">
+                    <Card.Body>
+                        V databázi se momentálně nachází <b className="text-primary">{coffeeList.length}</b> druhů kávy.
+                    </Card.Body>
+                </Card>
+
                 <Row sm="1" md="2" lg="3">
                     {coffeeList.map(item => (
                         <Col key={item.slug} className="pb-3">
