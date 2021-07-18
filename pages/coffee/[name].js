@@ -2,7 +2,7 @@ import Markdown from "react-markdown";
 import {join} from "path";
 import {coffee} from "../../data/coffee";
 import {config} from "../../data/config";
-import {Alert, Col, Image, Row} from "react-bootstrap";
+import {Alert, Col, Dropdown, DropdownButton, Image, Row} from "react-bootstrap";
 import Head from "next/head";
 import {CoffeeProperties} from "../../components/CoffeeProperties";
 
@@ -10,8 +10,7 @@ const POST_PATH = join(process.cwd(), '_articles', 'coffee');
 
 const Coffee = ({page, content, properties}) => {
     const gfm = require("remark-gfm");
-    const renderers = {
-    };
+    const renderers = {};
 
     return (
         <>
@@ -24,16 +23,23 @@ const Coffee = ({page, content, properties}) => {
                         <h1>{page.name}</h1>
                     </Col>
                     <Col>
-                        <a href={`https://github.com/filipsedivy/coffee-page/blob/main/_articles/coffee/${page.slug}.md`}
-                           className="float-end"
-                           target="_blank">
-                            Editovat stránku
-                        </a>
+                        <DropdownButton title="Upravit" size="sm" className="float-end">
+                            <Dropdown.Item
+                                href={`${config.baseRepositoryUrl}/_articles/coffee/${page.slug}.md`}
+                                target="_blank">
+                                Stránku
+                            </Dropdown.Item>
+                            <Dropdown.Item
+                                href={`${config.baseRepositoryUrl}/data/coffee/${page.slug}.json`}
+                                target="_blank">
+                                Vlastnosti
+                            </Dropdown.Item>
+                        </DropdownButton>
                     </Col>
                 </Row>
 
                 <Row>
-                    <Col><CoffeeProperties head={properties.head} data={properties.data} /></Col>
+                    <Col><CoffeeProperties head={properties.head} data={properties.data}/></Col>
                     <Col><Image src={page.image} rounded fluid/></Col>
                 </Row>
                 {content === null ?
@@ -66,8 +72,7 @@ export async function getStaticProps({params}) {
 
     const propertiesPath = join(process.cwd(), 'data', 'coffee', `${page.slug}.json`);
     let properties = {};
-    if(fs.existsSync(propertiesPath))
-    {
+    if (fs.existsSync(propertiesPath)) {
         let buffer = fs.readFileSync(propertiesPath);
         properties = JSON.parse(buffer).properties;
     }

@@ -1,4 +1,5 @@
 export const config = {
+    baseRepositoryUrl: 'https://github.com/filipsedivy/coffee-page/blob/main',
     coffeePropertiesTable: {
         cupSize: 'Velikost šálku',
         beverageVolume: 'Objem nápoje',
