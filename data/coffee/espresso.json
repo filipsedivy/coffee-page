@@ -1,0 +1,10 @@
+{
+  "properties": {
+    "cupSize": "60-90 ml",
+    "beverageVolume": "25-35 ml",
+    "weightCoffee": "7 g ± 0,5",
+    "waterOutputTemperature": "88°C ± 2°C",
+    "temperatureDrinkInCup": "67°C ± 3°C",
+    "waterInletPressure": "9 bar ± 1"
+  }
+}

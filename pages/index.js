@@ -21,9 +21,9 @@ export default function Home({coffeeList}) {
             </Head>
 
             <main>
-                <Row>
+                <Row sm="1" md="2" lg="3">
                     {coffeeList.map(item => (
-                        <Col key={item.slug} className="pb-3" sm={1} md={1} lg={3}>
+                        <Col key={item.slug} className="pb-3">
                             <Card className="h-100">
                                 {item.hasOwnProperty('image') ?
                                     <Card.Img src={item.image} className="card-img-top"/> :

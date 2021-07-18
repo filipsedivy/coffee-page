@@ -1,17 +1,16 @@
 import Markdown from "react-markdown";
 import {join} from "path";
 import {coffee} from "../../data/coffee";
-import {Alert} from "react-bootstrap";
+import {config} from "../../data/config";
+import {Alert, Col, Image, Row} from "react-bootstrap";
 import Head from "next/head";
+import {CoffeeProperties} from "../../components/CoffeeProperties";
 
 const POST_PATH = join(process.cwd(), '_articles', 'coffee');
 
-const Coffee = ({page, content}) => {
+const Coffee = ({page, content, properties}) => {
     const gfm = require("remark-gfm");
     const renderers = {
-        table: (props) => {
-            return <table className="table table-bordered">{props.children}</table>
-        }
     };
 
     return (
@@ -20,7 +19,23 @@ const Coffee = ({page, content}) => {
                 <title>{page.name} | Encyklopedie kávy</title>
             </Head>
             <header>
-                <h1>{page.name}</h1>
+                <Row>
+                    <Col>
+                        <h1>{page.name}</h1>
+                    </Col>
+                    <Col>
+                        <a href={`https://github.com/filipsedivy/coffee-page/blob/main/_articles/coffee/${page.slug}.md`}
+                           className="float-end"
+                           target="_blank">
+                            Editovat stránku
+                        </a>
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col><CoffeeProperties head={properties.head} data={properties.data} /></Col>
+                    <Col><Image src={page.image} rounded fluid/></Col>
+                </Row>
                 {content === null ?
                     <Alert variant="warning">
                         <Alert.Heading>Chyba aplikace</Alert.Heading>
@@ -47,7 +62,16 @@ export async function getStaticProps({params}) {
     const page = coffee.find(page => page.slug === params.name) || {notfound: true};
 
     const fs = require("fs");
-    const path = join(POST_PATH, `${page.slug}.md`)
+    const path = join(POST_PATH, `${page.slug}.md`);
+
+    const propertiesPath = join(process.cwd(), 'data', 'coffee', `${page.slug}.json`);
+    let properties = {};
+    if(fs.existsSync(propertiesPath))
+    {
+        let buffer = fs.readFileSync(propertiesPath);
+        properties = JSON.parse(buffer).properties;
+    }
+
     let content = null;
 
     if (fs.existsSync(path)) {
@@ -59,7 +83,11 @@ export async function getStaticProps({params}) {
     return {
         props: {
             page: page,
-            content: content
+            content: content,
+            properties: {
+                head: config.coffeePropertiesTable,
+                data: properties
+            }
         }
     }
 }
