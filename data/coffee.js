@@ -76,5 +76,25 @@ export const coffee = [
     {
         name: 'Freddo',
         slug: 'freddo'
+    },
+    {
+        name: 'Bicerin',
+        slug: 'bicerin'
+    },
+    {
+        name: 'Con panna',
+        slug: 'con-panna'
+    },
+    {
+        name: 'Corretto',
+        slug: 'corretto'
+    },
+    {
+        name: 'Marocchino',
+        slug: 'marocchino'
+    },
+    {
+        name: 'Cold Brew',
+        slug: 'cold-brew'
     }
 ];
