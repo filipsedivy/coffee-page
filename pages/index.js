@@ -38,10 +38,14 @@ export default function Home({coffeeList}) {
                                         className="card-img-top"/>}
                                 <Card.Body className="text-center">
                                     <Card.Title>{item.name}</Card.Title>
+                                    {item.hasOwnProperty('tags') ? item.tags.map(tag => (
+                                        <span className="badge bg-primary me-2">{tag}</span>)) : null}
+                                </Card.Body>
+                                <Card.Footer className="text-center">
                                     <Link href={"/coffee/" + item.slug}>
                                         <Button size="sm" variant="primary">Zobrazit podrobnosti</Button>
                                     </Link>
-                                </Card.Body>
+                                </Card.Footer>
                             </Card>
                         </Col>
                     ))}
