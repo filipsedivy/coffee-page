@@ -30,6 +30,7 @@ export default function Home({coffeeList}) {
                     {coffeeList.map(item => (
                         <Col key={item.slug} className="pb-3">
                             <CoffeeCardItem
+                                key={item.slug}
                                 title={item.name}
                                 slug={item.slug}
                                 image={item.hasOwnProperty('image') ? item.image : null}

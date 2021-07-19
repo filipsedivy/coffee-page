@@ -1,5 +1,8 @@
 export const config = {
     baseRepositoryUrl: 'https://github.com/filipsedivy/coffee-page/blob/main',
+    apiRepository: {
+        lastCommit: 'https://api.github.com/repos/filipsedivy/coffee-page/commits/main'
+    },
     coffeePropertiesTable: {
         cupSize: 'Velikost šálku',
         beverageVolume: 'Objem nápoje',
