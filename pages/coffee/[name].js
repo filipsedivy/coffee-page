@@ -24,20 +24,6 @@ const Coffee = ({page, content, properties}) => {
                     <Col>
                         <h1><Link href="/"><a><Ionicons4.IoIosArrowBack/></a></Link> {page.name}</h1>
                     </Col>
-                    <Col>
-                        <DropdownButton title="Upravit" size="sm" className="float-end">
-                            <Dropdown.Item
-                                href={`${config.baseRepositoryUrl}/_articles/coffee/${page.slug}.md`}
-                                target="_blank">
-                                Stránku
-                            </Dropdown.Item>
-                            <Dropdown.Item
-                                href={`${config.baseRepositoryUrl}/data/coffee/${page.slug}.json`}
-                                target="_blank">
-                                Vlastnosti
-                            </Dropdown.Item>
-                        </DropdownButton>
-                    </Col>
                 </Row>
 
                 <Row>
