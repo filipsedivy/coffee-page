@@ -1,6 +1,10 @@
 import {Component} from "react";
 import {config} from "../data/config";
 import moment from "moment";
+import * as VSCodeIcon from "react-icons/vsc";
+import * as GitHubIcon from "react-icons/go";
+import {OverlayTrigger, Tooltip} from "react-bootstrap";
+
 
 interface IProps {
 
@@ -39,9 +43,25 @@ export class Footer extends Component<IProps, IState> {
     render() {
         return (
             <div className="text-center p-4 bg-light">
-                Poslední aktualizace: {this.state.lastUpdate ?
-                <a href={this.state.lastCommitLink} target="_blank">{this.state.lastUpdate}</a> :
-                <>Načítání dat</>}
+                Provozuje: <a href="https://filipsedivy.cz" className="text-decoration-none">Filip Šedivý</a>
+                <VSCodeIcon.VscKebabVertical/>
+                Poslední aktualizace: {this.state.lastUpdate ? (
+                <OverlayTrigger placement="top" overlay={
+                    <Tooltip id={`tooltip-last_commit-top`}>Odkaz na výpis poslední aktualizace</Tooltip>
+                }>
+                    <a href={this.state.lastCommitLink} target="_blank"
+                       className="text-decoration-none">{this.state.lastUpdate}
+                    </a>
+                </OverlayTrigger>
+            ) : <>Načítání dat</>}
+                <VSCodeIcon.VscKebabVertical/>
+                <OverlayTrigger placement="top" overlay={
+                    <Tooltip id={`tooltip-github-top`}>Zdrojové kódy webu</Tooltip>
+                }>
+                    <a href="https://github.com/filipsedivy/coffee-page/" target="_blank" className="text-reset">
+                        <GitHubIcon.GoMarkGithub/>
+                    </a>
+                </OverlayTrigger>
             </div>
         )
     }
