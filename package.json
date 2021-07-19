@@ -20,5 +20,10 @@
     "react-router-dom": "^5.2.0",
     "remark-gfm": "^1.0.0",
     "sass": "^1.35.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.3.3",
+    "@types/react": "^17.0.14",
+    "typescript": "^4.3.5"
   }
 }
