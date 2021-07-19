@@ -44,6 +44,8 @@ const Coffee = ({page, content, properties}) => {
                     <Col><CoffeeProperties head={properties.head} data={properties.data}/></Col>
                     <Col><Image src={page.image} rounded fluid/></Col>
                 </Row>
+            </header>
+            <main className="mt-3">
                 {content === null ?
                     <Alert variant="warning">
                         <Alert.Heading>Chyba aplikace</Alert.Heading>
@@ -52,7 +54,7 @@ const Coffee = ({page, content, properties}) => {
                         </p>
                     </Alert> :
                     <Markdown components={renderers} remarkPlugins={[gfm]} children={content} linkTarget="_blank"/>}
-            </header>
+            </main>
         </>
     )
 }

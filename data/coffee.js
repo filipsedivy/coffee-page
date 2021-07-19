@@ -2,12 +2,14 @@ export const coffee = [
     {
         name: 'Espresso',
         image: 'https://cdn.pixabay.com/photo/2019/01/13/11/54/espresso-3930170_1280.jpg',
-        slug: 'espresso'
+        slug: 'espresso',
+        tags: ['Espresso']
     },
     {
         name: 'Ristretto',
         image: 'https://ebenica.cz/wp-content/uploads/2020/09/ristretto-mlecne-kavy.jpg',
-        slug: 'ristretto'
+        slug: 'ristretto',
+        tags: ['Espresso', 'Crema']
     },
     {
         name: 'Black Eye',
@@ -15,7 +17,8 @@ export const coffee = [
     },
     {
         name: 'Lungo',
-        slug: 'lungo'
+        slug: 'lungo',
+        tags: ['Espresso', 'Horká voda']
     },
     {
         name: 'Americano',
@@ -35,11 +38,13 @@ export const coffee = [
     },
     {
         name: 'Latte Macchiato',
-        slug: 'latte-macchiato'
+        slug: 'latte-macchiato',
+        tags: ['Espresso', 'Teplé mléko', 'Mléčná pěna']
     },
     {
         name: 'Cappuccino',
-        slug: 'cappuccino'
+        slug: 'cappuccino',
+        tags: ['Espresso', 'Mléko', 'Mléčná pěna']
     },
     {
         name: 'Flat white',
@@ -51,7 +56,8 @@ export const coffee = [
     },
     {
         name: 'Affogato',
-        slug: 'affogato'
+        slug: 'affogato',
+        tags: ['Espresso', 'Vanilková zmrzlina', 'Likér']
     },
     {
         name: 'Irish',
